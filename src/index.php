@@ -107,7 +107,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-                   &copy; 2017 LSPD |
+                   &copy; 2018 LSMD |
             <a href="https://www.youtube.com/user/davendrix" target="_blank"  > Coded by : Davendrix</a> &amp; Glen McMahon
         </div>
     </div>

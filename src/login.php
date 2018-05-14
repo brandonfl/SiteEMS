@@ -92,8 +92,8 @@ if(isset($_POST['formconnexion'])) {
 ?>
 <html >
 <head>
-    <link rel="icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" />
-<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" /><![endif]-->
+    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
   <meta charset="UTF-8">
   <title>Login</title>
   
@@ -112,8 +112,9 @@ if(isset($_POST['formconnexion'])) {
 <form method="POST" action="" class="form login">
 
       <header class="login__header">
-	    <img src="https://lossantospolicedepartmentlspd.weebly.com/uploads/2/5/6/4/25644844/6606452.png">
-        <h3 class="login__title">LSPD Login</h3>
+	    <img src="assets/img/lsmd.png" style="width: 70%;height: auto">
+          <br>
+        <h3 class="login__title">LSMD Login</h3>
       </header>
 
       <div class="login__body">

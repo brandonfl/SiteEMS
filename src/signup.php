@@ -43,15 +43,15 @@ if(isset($_POST['forminscription'])) {
 ?>
 <html>
    <head>
-    <link rel="icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" />
-<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" /><![endif]-->
-      <title>LSPD</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
+      <title>LSMD</title>
       <meta charset="utf-8">
    </head>
    <body>
       <div align="center">
        <header class="login__header">
-	    <img src="https://lossantospolicedepartmentlspd.weebly.com/uploads/2/5/6/4/25644844/6606452.png">
+	    <img src="assets/img/lsmd.png" style="height: 200px">
       </header>
          <h2>Registration</h2>
          <br /><br />
