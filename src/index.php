@@ -7,7 +7,7 @@
         <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
             <![endif]-->
-            <title>LSPD PANEL</title>
+            <title>LSMD PANEL</title>
             <!-- BOOTSTRAP CORE STYLE  -->
             <link href="assets/css/bootstrap.css" rel="stylesheet" />
             <!-- FONT AWESOME STYLE  -->
@@ -19,8 +19,8 @@
         </head>
 
     <head>
-    <link rel="icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" />
-<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" /><![endif]-->
+    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
     </head>
 
         <body>
@@ -33,7 +33,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="index.php">
-                            <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
+                            <img src="assets/img/lsmd-bandeau.png" height=70/>
                         </a>
                     </div>
 
@@ -60,7 +60,7 @@
                 <div class="container">
                     <div class="row pad-botm">
                         <div class="col-md-12">
-                            <h4 class="header-line">Site LSPD</h4>
+                            <h4 class="header-line">Site LSMD</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -69,15 +69,21 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                     <!-- /. ICI  -->
-                    <h3>Recrutement LSPD</h3>
+                    <h3>Recrutement LSMD</h3>
                                     <center>
                                     </br>
-                    La LSPD recrute ! Que vous soyez blond, brun, roux, il y a une place pour vous chez nous !
-                    N'hésitez pas à remplir notre <a href="https://docs.google.com/forms/d/e/1FAIpQLSfMFwuD0P086_8tYLPQWr363RLMwvMhiR9Aum2gqMHETJNLqA/viewform"> formulaire de recutement</a> et à contacter l'un des deux capitaines ( @[Capitaine] Alyana Lasticot ou @[Capitaine] Stanislas BARCLAY ) afin de valider la priser en compte de votre candidature.
-                    Nous recherchons des personnes fiables, ayant l'esprit d'équipe et prête à se mettre au service de nos concitoyens. Casier vierge requis. Une expérience dans un domaine de la sécurité est un plus mais pas obligatoire.
-                    </br>
+                                        Les EMS font une campagne de recrutement. </br>
 
-                    <img src="https://cdn.discordapp.com/attachments/399576168770174978/410885422877769733/tousbienvenu.png"/>
+                                        Le métier d’EMS peut paraître idéal mais la réalité est bien loin de “sauver des vies quotidiennement”.
+                                        Plus proche du baby sitting pour les têtes en l’air qui oublient de boire et de manger, des férues de sensation fortes sans maîtrises de leurs sport (vélo, plongée, saut en parachute), des inspections de la prostates, insertion de suppositoires. </br>
+
+                                        Mais plus sérieusement ce métier à aussi beaucoup d'attraits le contacte quotidien avec l’intégralité des citoyens de Los Santos (y compris nos chère pécors) qui vous proposent un palette de personnalité variée, une formation à un métier médico-social enrichissant en connaissance, la reconnaissance (pas automatique) de nos patients. </br>
+
+                                        De plus plusieurs services vont d’ici peu ouvrir leurs portes comme un service d’addictologie, de psychothérapie, psychiatrie, une branche dédiée au don du sang, tout autant de spécialisation qui vous seront permise au seing de nôtre équipe soudée, accueillant et à votre disposition pour toutes questions et éclaircissements. </br>
+
+                                        <strong>Pour plus d’informations veuillez contacter M. KING par mail.</strong></br> </br>
+
+                    <img src="assets/img/recrutement.jpg" style="width: 100%;height: auto"/>
                                </center>
 
                     <!-- /. ROW  -->
