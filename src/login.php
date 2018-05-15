@@ -32,18 +32,8 @@ if(isset($_POST['formconnexion'])) {
          if($userinfo['allowed'] == 0){
             $erreur = "Vous n'êtes pas encore autorisé à vous connecter !";
         } else {
-             $_SESSION['police'] = $userinfo['police'];
-             $_SESSION['procureur'] = $userinfo['procureur'];
-             $_SESSION['juge'] = $userinfo['juge'];
-             $_SESSION['concessionnaire'] = $userinfo['concessionnaire'];
-             $_SESSION['mecanicien'] = $userinfo['mecanicien'];
              $_SESSION['PDG'] = $userinfo['PDG'];
-             $gm = 0;
-             $gm =  $_SESSION['police'] + $_SESSION['procureur'] + $_SESSION['juge'] + $_SESSION['concessionnaire'] + $_SESSION['mecanicien'];
-             if($gm == 0){
-                 $erreur = "Vous n'avez pas encore de grade. Merci de bien vouloir contacter un administrateur";
-             } else {
-                 if (isset($gm) and is_numeric($gm) and ($gm == 1)){
+
                      $_SESSION['id'] = $userinfo['id'];
                      $_SESSION['pseudo'] = $userinfo['pseudo'];
                      $_SESSION['mail'] = $userinfo['mail'];
@@ -59,27 +49,13 @@ if(isset($_POST['formconnexion'])) {
 
                      $req->execute();
 
-                         if($_SESSION['police'] == 1 or $_SESSION['procureur'] == 1 or $_SESSION['juge'] == 1){
-                             header("Location: police.php?id=" . $_SESSION['id']);
-                         }
-
-
-                         if($_SESSION['concessionnaire'] == 1){
-                             header("Location: concessionnaire.php?id=" . $_SESSION['id']);
-                         }
-
-                         if($_SESSION['mecanicien'] == 1){
-                             header("Location: mecanicien.php");
-                         }
+             header("Location: police.php?id=" . $_SESSION['id']);
 
 
 
 
 
-                 }else {
-                     $erreur = "Une erreur c'est produite au niveau de vos grades. Merci de bien vouloir contacter un administrateur";
-                 }
-             }
+
          
          }
       } else {

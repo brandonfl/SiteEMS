@@ -27,7 +27,7 @@ session_start();
 
 
 
-if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['procureur'] == 1 or $_SESSION['Admin'] == 1 or $_SESSION['juge'] == 1)) {
+if (isset($_SESSION['id'])) {
 
     if($_SESSION['juge']==1){
         $nav = '                    <li>
