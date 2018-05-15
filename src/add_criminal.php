@@ -38,7 +38,7 @@
 										</li>';
             }else{
                 $nav = '                    <li>
-                                        <a href="police.php">Home</a>
+                                        <a href="lsmd.php">Home</a>
                                     </li>
                                     <li>
 										<a href="add_criminal.php" class="menu-top-active">Ajouter un criminel</a>

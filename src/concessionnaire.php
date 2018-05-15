@@ -87,7 +87,7 @@ if (isset($_SESSION['id']) and  ($_SESSION['concessionnaire'] == 1 or $_SESSION[
 										</li>';
             }
 
-            $logo = '<a class="navbar-brand" href="police.php">
+            $logo = '<a class="navbar-brand" href="lsmd.php">
                             <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
                         </a>';
 

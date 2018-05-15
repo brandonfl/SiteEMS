@@ -7,7 +7,7 @@
         <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
             <![endif]-->
-            <title>LSPD PANEL</title>
+            <title>LSMD PANEL</title>
             <!-- BOOTSTRAP CORE STYLE  -->
             <link href="assets/css/bootstrap.css" rel="stylesheet" />
             <!-- FONT AWESOME STYLE  -->
@@ -29,39 +29,8 @@ session_start();
 
 if (isset($_SESSION['id'])) {
 
-    if($_SESSION['juge']==1){
-        $nav = '                    <li>
-                                        <a href="police.php" class="menu-top-active">Home</a>
-                                    </li>
-									<li>
-										<a href="bracelet.php">Bracelet</a>
-									</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>
-										<li>
-											<a href="drive" target="_blank">Documents</a>
-										</li>';
-    }else{
-        if($_SESSION['procureur']==1){
             $nav = '                    <li>
-                                        <a href="police.php" class="menu-top-active">Home</a>
-                                    </li>
-                                    <li>
-										<a href="add_criminal.php">Ajouter un criminel</a>
-									</li>
-									<li>
-										<a href="bracelet.php">Bracelet</a>
-									</li>
-									<li>
-											<a href="concessionnaire.php">Plaques</a>
-										</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>';
-        }else{
-            $nav = '                    <li>
-                                        <a href="police.php" class="menu-top-active">Home</a>
+                                        <a href="lsmd.php" class="menu-top-active">Home</a>
                                     </li>
                                     <li>
 										<a href="add_criminal.php">Ajouter un criminel</a>
@@ -81,14 +50,12 @@ if (isset($_SESSION['id'])) {
 										<li>
 											<a href="drive" target="_blank">Documents</a>
 										</li>';
-        }
 
-    }
 
     echo '
     <head>
-    <link rel="icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" />
-<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" /><![endif]-->
+    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
     </head>
 
         <body>
@@ -100,8 +67,8 @@ if (isset($_SESSION['id'])) {
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="police.php">
-                            <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
+                        <a class="navbar-brand" href="lsmd.php">
+                            <img src="assets/img/lsmd-bandeau.png" height=70/>
                         </a>
                     </div>
                     <div class="right-div">';
