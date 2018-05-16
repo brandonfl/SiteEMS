@@ -14,13 +14,13 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
                                     </li>';
     }
 
-    if($current == "/add_criminal.php"){
+    if($current == "/add_accident.php"){
         $resultat .= '<li>
-										<a href="add_criminal.php" class="menu-top-active">Ajouter un criminel</a>
+										<a href="add_accident.php" class="menu-top-active">Ajouter un accident</a>
 									</li>';
     }else{
         $resultat .= '<li>
-										<a href="add_criminal.php">Ajouter un criminel</a>
+										<a href="add_accident.php">Ajouter un accident</a>
 									</li>';
     }
 

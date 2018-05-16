@@ -16,6 +16,9 @@
             <link href="assets/css/style.css" rel="stylesheet" /> 
             <!-- GOOGLE FONT -->
             <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+
+
         </head>
         <?php
 if (isset($_GET['error'])) {
@@ -86,7 +89,7 @@ if (isset($_SESSION['id'])) {
             <div class="panel panel-info">
 				<div class="panel-heading">
 					<p></p>
-					<p></p>Liste des derniers controles medicales
+					<p></p>Liste des derniers controles medicales 
 					<p></p>
 					<p></p>
 				</div>
@@ -163,16 +166,7 @@ if (isset($_SESSION['id'])) {
                             echo '
     <div class="alert alert-danger alert-dismissable fade in">
     <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Attention !</strong> Uniquement les agents avec un haut niveau d\'habilitation peuvent effacer un casier judiciaire  </div>
-    
-    ';
-                        }
-
-                        if ($error == 2) {
-                            echo '
-    <div class="alert alert-danger alert-dismissable fade in">
-    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Attention !</strong> Uniquement les agents de la LSPD peuvent ajouter un casier judiciaire et non le procureur</div>
+    <strong>Attention !</strong> Uniquement les medecins avec un haut niveau d\'habilitation peuvent effacer un controle medicale  </div>
     
     ';
                         }
@@ -191,17 +185,16 @@ if (isset($_SESSION['id'])) {
                                                 <tr>
                                                     <th>Horodateur</th>
                                                     <th>Nom</th>
-                                                    <th>Telephone</th>
-                                                    <th>Crime</th>
-                                                    <th>Sanction</th>
-                                                    <th>Agent</th>
+                                                    <th>Description</th>
+                                                    <th>Effectué</th>
+                                                    <th>Medecin</th>
                                                     <th>delete</th>
                                                     
                                                 </tr>
                                             </thead>
                                             <tbody>';
     // Get contents of the lspd table
-    $reponse = $bdd->query('SELECT * FROM lspd');
+    $reponse = $bdd->query('SELECT * FROM lsmd');
 
     // Display each entry one by one
     while ($data = $reponse->fetch()) {
@@ -215,34 +208,29 @@ if (isset($_SESSION['id'])) {
                                                    </td>
                                                     <td>
                                                         <?php
-        echo $data['nom'];
+        echo $data['dossier'];
 ?>
                                                    </td>
                                                     <td>
                                                         <?php
-        echo $data['telephone'];
+        echo $data['description'];
 ?>
                                                    </td>
 
                                                     <td class="center">
                                                         <?php
-        echo $data['crime'];
+        echo $data['effectué'];
 ?>
                                                    </td>
                                                     <td class="center">
                                                         <?php
-        echo $data['sanction'];
-?>
-                                                   </td>
-                                                   <td class="center">
-                                                        <?php
-        echo $data['Agent'];
+        echo $data['medecin'];
 ?>
                                                    </td>
                                                  <form action='delete_entry.php' method='post'>
                                                      <?php
-        echo '<td>
-                                                             <input type="submit" name="deleteItem" class="btn btn-danger" value="' . $data['id'] . '" />
+                                                      echo '<td>
+                                                             <input type="submit" name="deleteItem" class="btn btn-danger delete-callback" value="' . $data['id'] . '" />
                                                      </td>';
 ?>
                                                 </form>
