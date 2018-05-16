@@ -7,7 +7,7 @@
         <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
             <![endif]-->
-            <title>LSPD PANEL</title>
+            <title>LSMD PROFIL</title>
             <!-- BOOTSTRAP CORE STYLE  -->
             <link href="assets/css/bootstrap.css" rel="stylesheet" />
             <!-- FONT AWESOME STYLE  -->
@@ -49,130 +49,29 @@ session_start();
 
 
 
-if (isset($_SESSION['id'])) {
+if (isset($_SESSION['id']) and $_SESSION['Allow'] == 1) {
     include("config.php");
     $ID=$_SESSION['id'];
 
-    if($_SESSION['juge']==1){
-        $nav = '                    <li>
-                                        <a href="police.php">Home</a>
-                                    </li>
-									<li>
-										<a href="bracelet.php">Bracelet</a>
-									</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>
-										<li>
-											<a href="drive" target="_blank">Documents</a>
-										</li>';
+    $rang = "Medecin";
 
-        $logo = '<a class="navbar-brand" href="police.php">
-                            <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
+
+
+
+            $logo = '<a class="navbar-brand" href="lsmd.php">
+                            <img src="assets/img/lsmd-bandeau.png" height=70/>
                         </a>';
 
-        $rang = 'Juge';
-    }else{
-        if($_SESSION['police']==1 or $_SESSION['procureur']==1){
-            if($_SESSION['procureur']==1){
-                $nav = '                    <li>
-                                        <a href="police.php">Home</a>
-                                    </li>
-                                    <li>
-										<a href="add_criminal.php">Ajouter un criminel</a>
-									</li>
-									<li>
-										<a href="bracelet.php">Bracelet</a>
-									</li>
-									<li>
-											<a href="concessionnaire.php">Plaques</a>
-										</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>';
-            }else{
-                $nav = '                    <li>
-                                        <a href="police.php">Home</a>
-                                    </li>
-                                    <li>
-										<a href="add_criminal.php">Ajouter un criminel</a>
-									</li>
-									<li>
-										<a href="bracelet.php">Bracelet</a>
-									</li>
-									<li>
-											<a href="concessionnaire.php">Plaques</a>
-										</li>
-									<li>
-										<a href="vehicule.php">Vehicule</a>
-									</li>
-									
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>
-										<li>
-											<a href="drive" target="_blank">Documents</a>
-										</li>';
-            }
+            require 'nav.php';
+
+            $nav = getNavigation($_SERVER['PHP_SELF']);
 
 
-            $logo = '<a class="navbar-brand" href="police.php">
-                            <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
-                        </a>';
-
-            if($_SESSION['police']==1){
-                $rang = 'Police';
-            }else{
-                $rang = 'Procureur';
-            }
-        }else{
-            if($_SESSION['concessionnaire']==1){
-                $nav = '                    <li>
-                                        <a href="concessionnaire.php">Home</a>
-                                    </li>
-									<li>
-										<a href="concessionnaire_add.php">Ajouter une plaque</a>
-									</li>
-									<li>
-										<a href="plaque.php">Rechercher une plaque</a>
-									</li>
-										<li>
-											<a href="serveur" target="_blank">Ville</a>
-										</li>';
-                $logo='<a class="navbar-brand" href="concessionnaire.php">
-                            <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
-                        </a>';
-
-                $rang = 'Concessionnaire';
-
-            }else{
-                if($_SESSION['mecanicien']==1){
-                    $nav = '                    <li>
-                                        <a href="mecanicien.php">Home</a>
-                                    </li>
-									<li>
-										<a href="mecanicien_add.php">Ajouter un controle technique</a>
-									</li>
-										<li>
-											<a href="serveur" target="_blank">Ville</a>
-										</li>';
-
-                    $logo='<a class="navbar-brand" href="mecanicien.php">
-                            <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
-                        </a>';
-
-                    $rang = 'Mecanicien';
-                }else{
-                        header("Location: index.php");
-                }
-            }
-        }
-    }
 
     echo '
     <head>
-    <link rel="icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" />
-<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" /><![endif]-->
+    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
     </head>
 
         <body>
@@ -382,7 +281,7 @@ if (isset($_SESSION['id'])) {
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-                   &copy; 2017 LSPD |
+                   &copy; 2018 LSMD |
              Coded by :  Glen McMahon
         </div>
     </div>

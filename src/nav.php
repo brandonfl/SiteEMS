@@ -34,15 +34,6 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
 									</li>';
     }
 
-    if($current == "/concessionnaire.php"){
-        $resultat .= '<li>
-											<a href="concessionnaire.php" class="menu-top-active">Plaques</a>
-										</li>';
-    }else{
-        $resultat .= '<li>
-											<a href="concessionnaire.php">Plaques</a>
-										</li>';
-    }
 
     if($current == "/vehicule.php"){
         $resultat .= '<li>
@@ -56,13 +47,14 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
 
     }
 
-
+/*
     $resultat .= '<li>
 											<a href="trello" target="_blank">Informations Internes</a>
 										</li>
 										<li>
 											<a href="drive" target="_blank">Documents</a>
 										</li>';
+*/
 
     return $resultat;
 

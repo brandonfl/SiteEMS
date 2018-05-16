@@ -7,7 +7,7 @@
         <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
             <![endif]-->
-            <title>LSPD PANEL</title>
+            <title>LSMD PANEL</title>
             <!-- BOOTSTRAP CORE STYLE  -->
             <link href="assets/css/bootstrap.css" rel="stylesheet" />
             <!-- FONT AWESOME STYLE  -->
@@ -28,35 +28,16 @@ include("config.php");
 
 
 
-if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['Admin'] == 1)) {
+if (isset($_SESSION['id']) and  $_SESSION['Allow'] == 1) {
 
-        $nav = '                    <li>
-                                        <a href="police.php">Home</a>
-                                    </li>
-                                    <li>
-										<a href="add_criminal.php">Ajouter un criminel</a>
-									</li>
-									<li>
-										<a href="bracelet.php">Bracelet</a>
-									</li>
-									<li>
-											<a href="concessionnaire.php">Plaques</a>
-										</li>
-										<li>
-										<a href="vehicule.php" class="menu-top-active">Vehicule</a>
-									</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>
-										<li>
-											<a href="drive" target="_blank">Documents</a>
-										</li>';
+        require 'nav.php';
+        $nav = getNavigation($_SERVER['PHP_SELF']);
 
 
     echo '
     <head>
-    <link rel="icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" />
-<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" /><![endif]-->
+    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
     </head>
 
         <body>
@@ -68,8 +49,8 @@ if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['Admin'] 
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="police.php">
-                            <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
+                        <a class="navbar-brand" href="lsmd.php">
+                            <img src="assets/img/lsmd-bandeau.png" height=70/>
                         </a>
                     </div>
                     <div class="right-div">';
@@ -115,22 +96,6 @@ if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['Admin'] 
 
     
     if (isset($error)) {
-        if($error == 1){
-    echo '
-    <div class="alert alert-danger alert-dismissable fade in">
-    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Attention !</strong> Uniquement les agents avec un haut niveau d\'habilitation peuvent effacer un casier judiciaire  </div>
-    
-    ';}
-    
-    if($error == 2){
-    echo '
-    <div class="alert alert-danger alert-dismissable fade in">
-    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Attention !</strong> Uniquement les agents de la LSPD peuvent ajouter un casier judiciaire et non le procureur</div>
-    
-    ';
-    }
         if($error == 3){
             echo '
     <div class="alert alert-danger alert-dismissable fade in">
@@ -453,7 +418,7 @@ if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['Admin'] 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-                   &copy; 2017 LSPD |
+                   &copy; 2018 LSMD |
              Glen McMahon
         </div>
     </div>
