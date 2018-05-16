@@ -34,6 +34,17 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
 									</li>';
     }
 
+    if($current == "/dossier.php"){
+        $resultat .= '<li>
+										<a href="dossier.php" class="menu-top-active">Dossiers Médicaux</a>
+									</li>';
+
+    }else{
+        $resultat .= '<li>
+										<a href="dossier.php">Dossiers Médicaux</a>
+									</li>';
+
+    }
 
     if($current == "/vehicule.php"){
         $resultat .= '<li>

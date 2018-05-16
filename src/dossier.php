@@ -7,7 +7,7 @@
         <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
             <![endif]-->
-            <title>LSPD PANEL</title>
+            <title>LSMD PANEL</title>
             <!-- BOOTSTRAP CORE STYLE  -->
             <link href="assets/css/bootstrap.css" rel="stylesheet" />
             <!-- FONT AWESOME STYLE  -->
@@ -16,6 +16,11 @@
             <link href="assets/css/style.css" rel="stylesheet" /> 
             <!-- GOOGLE FONT -->
             <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+        <link rel="stylesheet" href="assets/bootstrap-select-1.12.4/dist/css/bootstrap-select.css" />
+        <script src="assets/bootstrap-select-1.12.4/dist/jquery.min.js"></script>
+        <script src="assets/bootstrap-select-1.12.4/dist/js/bootstrap-select.js"></script>
+
         </head>
         <?php
 if (isset($_GET['error'])) {
@@ -27,79 +32,24 @@ session_start();
 
 
 
-if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['procureur'] == 1 or $_SESSION['Admin'] == 1 or $_SESSION['concessionnaire'] == 1)) {
+if (isset($_SESSION['id']) and  $_SESSION['Allow'] == 1) {
     include("config.php");
 
-    if($_SESSION['concessionnaire'] == 1) {
-        $nav = '                    <li>
-                                        <a href="concessionnaire.php">Home</a>
-                                    </li>
-									<li>
-										<a href="concessionnaire_add.php">Ajouter une plaque</a>
-									</li>
-									<li>
-										<a href="plaque.php" class="menu-top-active">Rechercher une plaque</a>
-									</li>
-										<li>
-											<a href="serveur" target="_blank">Ville</a>
-										</li>';
+    require 'nav.php';
+    $nav = getNavigation($_SERVER['PHP_SELF']);
 
-        $logo = '<a class="navbar-brand" href="concessionnaire.php">
-                            <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
+    $logo = '<a class="navbar-brand" href="lsmd.php.php">
+                            <img src="assets/img/lsmd-bandeau.png" height=70/>
                         </a>';
-    }else{
-        if($_SESSION['procureur']==1){
-            $nav = '                    <li>
-                                        <a href="police.php">Home</a>
-                                    </li>
-                                    <li>
-										<a href="add_criminal.php">Ajouter un criminel</a>
-									</li>
-									<li>
-										<a href="bracelet.php">Bracelet</a>
-									</li>
-									<li>
-											<a href="concessionnaire.php" class="menu-top-active">Plaques</a>
-										</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>';
-        }else{
-            $nav = '                    <li>
-                                        <a href="police.php">Home</a>
-                                    </li>
-                                    <li>
-										<a href="add_criminal.php">Ajouter un criminel</a>
-									</li>
-									<li>
-										<a href="bracelet.php">Bracelet</a>
-									</li>
-									<li>
-											<a href="concessionnaire.php" class="menu-top-active">Plaques</a>
-										</li>
-										<li>
-										<a href="vehicule.php">Vehicule</a>
-									</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>
-										<li>
-											<a href="drive" target="_blank">Documents</a>
-										</li>';
-        }
 
-        $logo = '<a class="navbar-brand" href="police.php">
-                            <img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
-                        </a>';
-    }
 
-    if(isset($_GET['plaque'])) {
+    if(isset($_GET['nom'])) {
 
 
         echo '
     <head>
-    <link rel="icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" />
-<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" /><![endif]-->
+    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
     </head>
 
         <body>
@@ -147,11 +97,12 @@ if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['procureu
                 <div class="container">
                     <div class="row pad-botm">
                         <div class="col-md-12">
-                            <h4 class="header-line">Plaque : ' .$_GET['plaque']. '</h4>
+                            <h4 class="header-line">Dossier Medicale : ' .$_GET['plaque']. '</h4>
                         </div>
-                    </div>';
+                    </div>
+                    ';
 
-        $nbplaque = $bdd->query('SELECT COUNT(*) AS nb FROM plaque WHERE plaque =\''.strtoupper($_GET['plaque']).'\'');
+        $nbplaque = $bdd->query('SELECT COUNT(*) AS nb FROM dossier WHERE nom="'.$_GET['nom'].'"');
 
         if(isset($nbplaque)){
             while($datanbplaque = $nbplaque->fetch()){
@@ -160,110 +111,22 @@ if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['procureu
         }
 
         if($nombreplaque==0){
-                header('Location: plaque.php?error=1');
+                header('Location: dossier.php?error=1');
             }else {
 
+            echo' <div class="content-wrapper">
+                <div class="container">';
 
+            $homepage = file_get_contents('https://lsmd-fivelife.fr/dossier_preview.php?nom='.urlencode($_GET['nom']));
 
+            echo $homepage;
 
-            $maplaque = $bdd->query('SELECT * FROM plaque WHERE plaque =\''.strtoupper($_GET['plaque']).'\'');
-
-            if(isset($maplaque)){
-                while($datamaplaque = $maplaque->fetch()){
-
-                    echo 'Propriétaire : ' . $datamaplaque['proprietaire'] . '</br>modele de vehicule : '. $datamaplaque['modele'] . '</br>date aquisition : '. $datamaplaque['date'] .'';
-
-                }
-            }
 
             echo ' 
                     </br>
                     </br>
-                    <h3>Controle technique</h3>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- Advanced Tables -->
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-            
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                            <thead>
-                                                <tr>
-                                                    <th>Horodateur</th>
-                                                    <th>Plaque</th>
-                                                    <th>Nom</th>
-                                                    <th>Commentaire</th>
-                                                    <th>Fin de validite</th>
-                                                    <th>Mecanicien</th>
-                                                    
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                    ';
-
-
-            // Get contents of the lspd table
-            $reponse = $bdd->query('SELECT * FROM controle WHERE plaque =\''.strtoupper($_GET['plaque']).'\'');
-
-            // Display each entry one by one
-            while ($data = $reponse->fetch()) {
-                ?>
-                <tr class="odd gradeX">
-                        <td>
-                            <?php
-                            echo $data['horodateur'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                            echo $data['plaque'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                            echo $data['nom'];
-                            ?>
-                        </td>
-
-                        <td class="center">
-                            <?php
-                            echo $data['commentaire'];
-                            ?>
-                        </td>
-                        <td class="center">
-                            <?php
-                            echo $data['fin'];
-                            ?>
-                        </td>
-                        <td class="center">
-                            <?php
-                            echo $data['par'];
-                            ?>
-                        </td>
-                </tr>
-
-                <?php
-            }
-            $reponse->closeCursor(); // Complete query
-            echo '
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--End Advanced Tables -->
-                        </div>
-                    </div>
-                    <!-- /. ROW  -->
-                </div>
-                <!-- /. ROW  -->
-            </div>
             <!-- /. ROW  -->
             <!-- End  Hover Rows  -->
-        </div>
         <div class="col-md-6">
             <!--    Context Classes  -->
             <!--  end  Context Classes  -->
@@ -335,7 +198,7 @@ if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['procureu
                 <div class="container">
                     <div class="row pad-botm">
                         <div class="col-md-12">
-                            <h4 class="header-line">Rechercher une plaque</h4>
+                            <h4 class="header-line">Rechercher un dossier</h4>
                         </div>
                     </div>
                     
@@ -348,15 +211,36 @@ if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['procureu
         if(isset($_GET['error']) and $_GET['error'] == 1){
             echo '<div class="alert alert-danger alert-dismissable fade in">
     <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Attention !</strong> Aucune plaque trouvée </div>';
+    <strong>Attention !</strong> Aucune dossier trouvé </div>';
         }
+
                                 
-                             echo'   <form action="plaque.php" method="get">
+                             echo'   <form action="dossier.php" method="get">
 						<p>
 							<div class="form-group">
-								<label for="nom">Plaque *</label> :
-								<p class="help-block">ex: DB111BC</p>
-								<input type="text" name="plaque" id="plaque" class="form-control" required />
+								<label for="nom">First and Surname *</label> :
+								<p class="help-block">ex: John Cena</p>
+								<select data-live-search="true" name="nom" id="nom" data-live-search-style="startsWith" class="selectpicker" required>';
+
+                    $reponse = $bdd->query('SELECT nom FROM dossier');
+
+                    // Display each entry one by one
+                    while ($data = $reponse->fetch()) {
+                        echo '<option value="' . $data['nom'] . '">' . $data['nom'] . '</option>';
+
+                    }
+                    $reponse->closeCursor(); // Complete query
+
+                    /*
+
+            <option value="4444">4444</option>
+            <option value="Fedex">Fedex</option>
+            <option value="Elite">Elite</option>
+            <option value="Interp">Interp</option>
+            <option value="Test">Test</option>
+                    */
+                    echo '
+    </select>
 								<br />
 							</div>
 							<input type="submit" value="Send" class="btn btn-info" />
@@ -387,7 +271,7 @@ if (isset($_SESSION['id']) and  ($_SESSION['police'] == 1 or $_SESSION['procureu
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-                   &copy; 2017 LSPD | Coded by : Glen McMahon
+                   &copy; 2018 LSMD | Coded by : Glen McMahon
         </div>
     </div>
 </div> </section> <!-- FOOTER SECTION END--> <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  --> <!-- CORE JQUERY  --> <script src="assets/js/jquery-1.10.2.js"></script> <!-- BOOTSTRAP SCRIPTS  --> <script src="assets/js/bootstrap.js"></script> <!-- DATATABLE SCRIPTS  --> <script src="assets/js/dataTables/jquery.dataTables.js"></script> <script src="assets/js/dataTables/dataTables.bootstrap.js"></script> <!-- CUSTOM SCRIPTS  --> <script src="assets/js/custom.js"></script> </body> ';
