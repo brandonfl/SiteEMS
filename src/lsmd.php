@@ -99,7 +99,7 @@ if (isset($_SESSION['id']) and $_SESSION['Allow'] == 1) {
                 <div class="container">
                     <div class="row pad-botm">
                         <div class="col-md-12">
-                            <h4 class="header-line">LSPD PANEL</h4>
+                            <h4 class="header-line">LSMD PANEL</h4>
                         </div>
                     </div>
                     

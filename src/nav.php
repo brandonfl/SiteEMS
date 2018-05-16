@@ -67,6 +67,55 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
     return $resultat;
 
 }
+
+
+function getAdminNavigation($current){ //$_SERVER['PHP_SELF']
+
+    $resultat = '<li>
+                                        <a href="lsmd.php">LSMD</a>
+                                    </li>';
+
+
+
+    if($current == "/administration.php"){
+        $resultat .= ' <li>
+										<a href="administration.php" class="menu-top-active">Administration</a>
+									</li>';
+    }else{
+        $resultat .= ' <li>
+										<a href="administration.php">Administration</a>
+									</li>';
+    }
+
+    if($current == "/administration_annonce.php" or $current == "/administration_annonce_add.php"){
+        $resultat .= '<li>
+										<a href="administration_annonce.php" class="menu-top-active">Annonce</a>
+									</li>';
+    }else{
+        $resultat .= '<li>
+										<a href="administration_annonce.php">Annonce</a>
+									</li>';
+    }
+
+    if($current == "/administration_vehicule.php"){
+        $resultat .= '<li>
+										<a href="administration_vehicule.php" class="menu-top-active">Véhicule</a>
+									</li>';
+    }else{
+        $resultat .= '<li>
+										<a href="administration_vehicule.php">Véhicule</a>
+									</li>';
+    }
+
+
+
+
+    return $resultat;
+
+}
+
+
+
 /*
 $nav = '                    <li>
                                         <a href="lsmd.php" class="menu-top-active">Home</a>
