@@ -184,7 +184,7 @@ if (isset($_SESSION['id'])) {
                                             <thead>
                                                 <tr>
                                                     <th>Horodateur</th>
-                                                    <th>Nom</th>
+                                                    <th>Patient</th>
                                                     <th>Description</th>
                                                     <th>Effectué</th>
                                                     <th>Medecin</th>

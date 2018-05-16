@@ -222,30 +222,31 @@
 					<p></p>
 				</div>
 				<div class="panel-body">
-					<form action="add_criminal_post.php" method="post">
+					<form action="add_accident_post.php" method="post">
 						<p>
 							<div class="form-group">
 								<label for="nom">First and Surname *</label> :
 								<p class="help-block">ex: John Cena</p>
 								<input type="text" name="nom" id="nom" class="form-control"  value="'.$_GET['dossier'].'" required disabled/>
+								<input type="hidden" name="nom" id="nom" value="'.$_GET['dossier'].'">
 								<br />
 							</div>
 							<div class="form-group">
 								<label for="message">Description de l\'accident *</label> :
 								<p class="help-block">ex: A trop discuter avec Defesse</p>
-								<input type="text" name="telephone" id="telephone" class="form-control" />
+								<input type="text" name="description" id="description" class="form-control" />
 								<br />
 							</div>
 							<div class="form-group">
 								<label for="message">Action effectué *</label> :
 								<p class="help-block">ex: Envoie vers un psychologue</p>
-								<input type="text" name="crime" id="crime" class="form-control" required />
+								<input type="text" name="action" id="action" class="form-control" required />
 								<br />
 							</div>
 							<div class="form-group">
 								<label for="message">Prix *</label> :
 								<p class="help-block">ex: 0</p>
-								<input type="number" name="crime" id="crime" class="form-control" required />
+								<input type="number" name="prix" id="prix" class="form-control" required />
 								<br />
 							</div>
 							
