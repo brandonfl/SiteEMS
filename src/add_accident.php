@@ -82,7 +82,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="police.php">
+						<a class="navbar-brand" href="lsmd.php">
 							<img src="assets/img/lsmd-bandeau.png" height=70/>
 						</a>
 					</div>

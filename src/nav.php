@@ -24,13 +24,13 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
 									</li>';
     }
 
-    if($current == "/bracelet.php"){
+    if($current == "/contre-visite.php"){
         $resultat .= '<li>
-										<a href="bracelet.php" class="menu-top-active">Bracelet</a>
+										<a href="contre-visite.php" class="menu-top-active">Contre Visites</a>
 									</li>';
     }else{
         $resultat .= '<li>
-										<a href="bracelet.php">Bracelet</a>
+										<a href="contre-visite.php">Contre Visites</a>
 									</li>';
     }
 
