@@ -19,7 +19,7 @@ if(isset($_FILES['avatar'])) {
     {
 
         $type = urlencode($_FILES['avatar']['name']);
-        $url = "https://lspd-fivelife.fr/". $dossier .$type." ";
+        $url = "https://lsmd-fivelife.fr/". $dossier .$type." ";
 
         $typearray = explode(".",$type);
         $dbtype = $typearray[0];
