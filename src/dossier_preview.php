@@ -33,18 +33,16 @@ if(isset($_GET['nom'])){
     <![endif]-->
     <title>LSMD PANEL</title>
     <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://lsmd-fivelife.fr/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME STYLE  -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="https://lsmd-fivelife.fr/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="https://lsmd-fivelife.fr/assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 
 <head>
-    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
-    <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
 
     <style>
         .profile-teaser-left {
@@ -95,16 +93,12 @@ if(isset($_GET['nom'])){
 
                                 <div class="list-group">
                                     <div class="list-group-item clearfix">
-                                        <center><img src="assets/img/lsmd-bandeau.png"></center>
+                                        <center><img src="https://lsmd-fivelife.fr/assets/img/lsmd-bandeau.png"></center>
 
                                         <br><br>
 
                                         <div class="profile-head">
                                             <div class="col-md-2 col-sm-3 col-xs-5">
-                                                <div class="row">
-                                                    <img src=""" class="img-responsive"/>
-
-                                                </div>
                                             </div>
                                             <div class="col-md-9 col-sm-8 col-xs-9">
                                                 <div class="row">
