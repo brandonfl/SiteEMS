@@ -171,7 +171,7 @@ if (isset($_SESSION['id']) and $_SESSION['Admin'] == 1) {
                                                    <form action='administration_vehicule_type_delete.php' method='post'>
                                                        <td>
                                                        <?php
-                                                       if($data['id']>11) {
+                                                       if($data['id']>3) {
                                                            echo '
                                                              <input type="submit" name="deleteItem" class="btn btn-danger" value="' . $data['id'] . '" />
                                                      ';

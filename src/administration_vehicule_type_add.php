@@ -149,7 +149,7 @@ echo'
 <form method="POST" action="administration_vehicule_type_add_form.php" enctype="multipart/form-data">
                         <div class="form-group">
 								<label for="message">Nom *</label> :
-								<p class="help-block">ex Police Cruiser</p>
+								<p class="help-block">ex Ambulance</p>
 								<input type="text" name="nom" id="nom" class="form-control" required />
 								<br />
 							</div>
