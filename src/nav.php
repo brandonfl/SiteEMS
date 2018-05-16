@@ -97,7 +97,8 @@ function getAdminNavigation($current){ //$_SERVER['PHP_SELF']
 									</li>';
     }
 
-    if($current == "/administration_vehicule.php"){
+
+    if($current == "/administration_vehicule.php" or $current == "/administration_vehicule_type_add.php" or $current == "/administration_vehicule_type.php" or $current == "/administration_vehicule_add.php"){
         $resultat .= '<li>
 										<a href="administration_vehicule.php" class="menu-top-active">Véhicule</a>
 									</li>';

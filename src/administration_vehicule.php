@@ -7,7 +7,7 @@
         <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
             <![endif]-->
-            <title>LSPD PANEL</title>
+            <title>LSMD ADMIN PANEL</title>
             <!-- BOOTSTRAP CORE STYLE  -->
             <link href="assets/css/bootstrap.css" rel="stylesheet" />
             <!-- FONT AWESOME STYLE  -->
@@ -32,10 +32,14 @@ session_start();
 
 
 if (isset($_SESSION['id']) and $_SESSION['Admin'] == 1) {
+
+    require 'nav.php';
+    $nav = getAdminNavigation($_SERVER['PHP_SELF']);
+
     echo '
     <head>
-    <link rel="icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" />
-<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" /><![endif]-->
+    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
     </head>
         <body>
             <div class="navbar navbar-inverse set-radius-zero" >
@@ -47,7 +51,7 @@ if (isset($_SESSION['id']) and $_SESSION['Admin'] == 1) {
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="lsmd.php">
-                            <img src="assets/img/lspd.png" width=180 height=70/>
+                            <img src="assets/img/lsmd-bandeau.png" height=70/>
                         </a>
                     </div>
                     <div class="right-div">';
@@ -72,18 +76,7 @@ if (isset($_SESSION['id']) and $_SESSION['Admin'] == 1) {
                         <div class="col-md-12">
                             <div class="navbar-collapse collapse ">
                                 <ul id="menu-top" class="nav navbar-nav navbar-right">
-                                    <li>
-                                        <a href="police.php">Police</a>
-                                    </li>
-                                    <li>
-										<a href="administration.php">Administration</a>
-									</li>
-									<li>
-										<a href="administration_annonce.php">Annonce</a>
-									</li>
-									<li>
-										<a href="administration_vehicule.php" class="menu-top-active">Véhicule</a>
-									</li>
+                                    '.$nav.'
                                 </ul>
                             </div>
                         </div>
@@ -314,7 +307,7 @@ if (isset($_SESSION['id']) and $_SESSION['Admin'] == 1) {
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-                   &copy; 2017 LSPD |
+                   &copy; 2018 LSMD |
              Coded by : Glen McMahon
         </div>
     </div>
