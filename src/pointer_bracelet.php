@@ -3,10 +3,7 @@ include( "config.php" );
 session_start();
 date_default_timezone_set('Europe/Paris'); //nous sommes en france ;)
 if (isset($_SESSION['id'])) {
-    if ($_SESSION['juge'] == 1) {
-        header('Location: bracelet.php?statut=3');
-    } else {
-      if ($_SESSION['police'] == 1 or $_SESSION['procurreur'] == 1 or $_SESSION['Admin'] == 1) {
+      if ($_SESSION['Allow'] == 1) {
           if (isset($_POST['updateItem']) and is_numeric($_POST['updateItem'])) {
 
               $now = time();
@@ -20,15 +17,15 @@ if (isset($_SESSION['id'])) {
               $count->execute();
 
               $statut = "2";
-              header('Location: bracelet.php?statut=' . $statut);
+              header('Location: contre-visite.php?statut=' . $statut);
 
 
 
-          };
+          }
       } else {
         header('Location: login.php');
       }
-    };
+
 }else{
     header('Location: login.php');
 }

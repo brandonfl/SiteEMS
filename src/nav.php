@@ -24,7 +24,7 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
 									</li>';
     }
 
-    if($current == "/contre-visite.php"){
+    if($current == "/contre-visite.php" or $current == "/add_visite.php"){
         $resultat .= '<li>
 										<a href="contre-visite.php" class="menu-top-active">Contre Visites</a>
 									</li>';

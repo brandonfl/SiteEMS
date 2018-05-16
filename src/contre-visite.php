@@ -96,10 +96,10 @@ if (isset($_SESSION['id']) and  $_SESSION['Allow'] == 1) {
                 <div class="container">
                     <div class="row pad-botm">
                         <div class="col-md-12">
-                            <h4 class="header-line">Bracelet PANEL</h4>
+                            <h4 class="header-line">Visites PANEL</h4>
                         </div> 
                     </div>
-                    <a href="add_bracelet.php" class="btn btn-success pull-right">Ajouter un bracelet</a>
+                    <a href="add_visite.php" class="btn btn-success pull-right">Ajouter un patient</a>
                     </br>
                     <div class="row">
                         <div class="col-md-12">
@@ -111,12 +111,12 @@ if (isset($_SESSION['id']) and  $_SESSION['Allow'] == 1) {
                                             <thead>
                                                 <tr>
                                                     <th>Nom</th>
-                                                    <th>Telephone</th>
+                                                    <th>Raison</th>
                                                     <th>Debut</th>
                                                     <th>Fin</th>
                                                     <th>Derniere visite</th>
                                                     <th>Fait par</th>
-                                                    <th>Visite</th>
+                                                    <th>Controler</th>
                                                     <th>Supprimer</th>
                                                     
                                                 </tr>
@@ -125,41 +125,16 @@ if (isset($_SESSION['id']) and  $_SESSION['Allow'] == 1) {
 
                                     ';
     if (isset($statut)) {
-        if($statut == 0){
-    echo '
-    <div class="alert alert-info alert-dismissable fade in">
-    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Attention !</strong> Uniquement les agents avec un haut niveau d\'habilitation ou le procureur peuvent ajouter un bracelet</div>
-    
-    ';
-    }
-    
-    if($statut == 1){
-    echo '
-    <div class="alert alert-danger alert-dismissable fade in">
-    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Attention !</strong> Uniquement les agents avec un haut niveau d\'habilitation ou le procureur peuvent effacer un bracelet</div>
-    
-    ';
-    }
     
     if($statut == 2){
     echo '
     <div class="alert alert-success alert-dismissable fade in">
     <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Sucess !</strong> Vous avez bien pointer un bracelet electronique  </div>
+    <strong>Sucess !</strong> Vous avez bien controlé un patient  </div>
     
     ';
     }
 
-    if($statut == 3){
-            echo '
-    <div class="alert alert-danger alert-dismissable fade in">
-    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Attention !</strong> Le Juge ne peut pas gérer les bracelets. Merci de bien vouloir s\'adresser au procurreur </div>
-    
-    ';
-        }
     
 }
     // Get contents of the lspd table
@@ -178,7 +153,7 @@ if (isset($_SESSION['id']) and  $_SESSION['Allow'] == 1) {
                                                    </td>
                                                     <td>
                                                         <?php
-        echo $data['telephone'];
+        echo $data['raison'];
 ?>
                                                    </td>
                                                     

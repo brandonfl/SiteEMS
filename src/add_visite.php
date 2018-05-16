@@ -7,7 +7,7 @@
 		<!--[if IE]>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 			<![endif]-->
-			<title>LSPD</title>
+			<title>LSMD</title>
 			<!-- BOOTSTRAP CORE STYLE  -->
 			<link href="assets/css/bootstrap.css" rel="stylesheet" />
 			<!-- FONT AWESOME STYLE  -->
@@ -16,79 +16,74 @@
 			<link href="assets/css/style.css" rel="stylesheet" />
 			<!-- GOOGLE FONT -->
 			<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+        <link rel="stylesheet" href="assets/bootstrap-select-1.12.4/dist/css/bootstrap-select.css" />
+        <script src="assets/bootstrap-select-1.12.4/dist/jquery.min.js"></script>
+        <script src="assets/bootstrap-select-1.12.4/dist/js/bootstrap-select.js"></script>
+
 		</head>
-		<?php include( "config.php"); session_start(); if (isset($_SESSION[ 'id'])) { 
-		
-		if($_SESSION['procureur'] == 0 and $_SESSION['Admin'] == 0){
-		    if($_SESSION['juge']==1){
-                $statut = 3;
-            }else{
-                $statut = 0;
-            }
+		<?php include( "config.php"); session_start();
 
-			header( "Location: bracelet.php?statut=".$statut);
-			} else {
+		if (isset($_SESSION[ 'id']) and $_SESSION['Allow'] == 1) {
 
 
-            if($_SESSION['juge'] == 1){
-                $nav = '                    <li>
-                                        <a href="police.php">Home</a>
-                                    </li>
-									<li>
-										<a href="bracelet.php" class="menu-top-active">Bracelet</a>
-									</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>
-										<li>
-											<a href="drive" target="_blank">Documents</a>
-										</li>';
-            }else{
-                if($_SESSION['procureur']==1){
-                    $nav = '                    <li>
-                                        <a href="police.php">Home</a>
-                                    </li>
-                                    <li>
-										<a href="add_criminal.php">Ajouter un criminel</a>
-									</li>
-									<li>
-										<a href="bracelet.php" class="menu-top-active">Bracelet</a>
-									</li>
-									<li>
-											<a href="concessionnaire.php">Plaques</a>
-										</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>';
-                }else{
-                    $nav = '                    <li>
-                                        <a href="police.php">Home</a>
-                                    </li>
-                                    <li>
-										<a href="add_criminal.php">Ajouter un criminel</a>
-									</li>
-									<li>
-										<a href="bracelet.php" class="menu-top-active">Bracelet</a>
-									</li>
-									<li>
-											<a href="concessionnaire.php">Plaques</a>
-										</li>
-										<li>
-										<a href="vehicule.php">Vehicule</a>
-									</li>
-										<li>
-											<a href="trello" target="_blank">Informations Internes</a>
-										</li>
-										<li>
-											<a href="drive" target="_blank">Documents</a>
-										</li>';
+		    require 'nav.php';
+		    $nav = getNavigation($_SERVER['PHP_SELF']);
+
+
+
+            function CallAPI($method, $url, $data = false)
+            {
+                $curl = curl_init();
+
+                switch ($method)
+                {
+                    case "POST":
+                        curl_setopt($curl, CURLOPT_POST, 1);
+
+                        if ($data)
+                            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                        break;
+                    case "PUT":
+                        curl_setopt($curl, CURLOPT_PUT, 1);
+                        break;
+                    default:
+                        if ($data)
+                            $url = sprintf("%s?%s", $url, http_build_query($data));
                 }
+
+                curl_setopt($curl, CURLOPT_URL, $url);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+                $result = curl_exec($curl);
+
+                curl_close($curl);
+
+                return $result;
             }
+
+
+                    $method = "GET";
+                    $url = "https://gta-fivelife.fr/api/players.php";
+
+                    //https://gta-fivelife.fr/api/players.php?password=6a4fdf6da028facc1dc4ba29593e6523
+
+
+                    $request = array("password" => '6a4fdf6da028facc1dc4ba29593e6523');
+
+                    $res = CallAPI($method, $url, $request);
+                    $resultat = json_decode($res);
+
+
+                    $array = $resultat->{'result'};
+                    //print_r($array);
+
+
 
 				echo '
 		    <head>
-    <link rel="icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" />
-<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="https://lspd-fivelife.fr/assets/img/lspdlogo.ico" /><![endif]-->
+    <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="assets/img/lsmdico.ico" /><![endif]-->
     </head>
 		<body>
 			<div class="navbar navbar-inverse set-radius-zero" >
@@ -99,8 +94,8 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="police.php">
-							<img src="https://i.imgur.com/BQoTEoz.png" width=180 height=70/>
+						<a class="navbar-brand" href="lsmd.php">
+							<img src="assets/img/lsmd-bandeau.png" height=70/>
 						</a>
 					</div>
 					<div class="right-div">';
@@ -136,33 +131,48 @@
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<p></p>
-					<p></p>Ajouter un Bracelet
+					<p></p>Ajouter un Patient
 					<p></p>
 					<p></p>
 				</div>
 				<div class="panel-body">
 					<form action="add_bracelet_post.php" method="post">
 						<p>
-							<div class="form-group">
+							
+                <div class="form-group">
 								<label for="nom">First and Surname *</label> :
 								<p class="help-block">ex: John Cena</p>
-								<input type="text" name="nom" id="nom" class="form-control" required />
-								<br />
-							</div>
+								<select data-live-search="true" name="nom" id="nom" data-live-search-style="startsWith" class="selectpicker">';
+
+                    foreach ($array as $value) {
+                        echo '<option value="' . $value . '">' . $value . '</option>';
+                    }
+                    /*
+
+            <option value="4444">4444</option>
+            <option value="Fedex">Fedex</option>
+            <option value="Elite">Elite</option>
+            <option value="Interp">Interp</option>
+            <option value="Test">Test</option>
+                    */
+                    echo '
+    </select>
+    </div>
+    </br>
 							<div class="form-group">
-								<label for="message">Telephone *</label> :
-								<p class="help-block">ex 555-12345</p>
-								<input type="text" name="telephone" id="telephone" class="form-control" />
+								<label for="message">Raison *</label> :
+								<p class="help-block">ex: bandage à controler</p>
+								<input type="text" name="raison" id="raison" class="form-control" />
 								<br />
 							</div>
 							<div class="form-group">
 								<label for="message">Date de fin *</label> :
-								<p class="help-block">2012-12-21</p>
+								<p class="help-block">ex: 2012-12-21</p>
 								<input type="date" name="date" id="date" class="form-control" />
 								<br />
 							</div>
 							<input type="submit" value="Send" class="btn btn-info />
-						</p>
+							</p>
 					</form>
 					<p></p>
 					<img src="assets/img/lspdlogo.png" align="center">
@@ -185,5 +195,5 @@
 				<!-- BOOTSTRAP SCRIPTS  -->
 				<script src="assets/js/bootstrap.js"></script>
 			</body>';
-			 }} else { header( "Location: login.php"); } ?>
+			 } else { header( "Location: login.php"); } ?>
 		</html>

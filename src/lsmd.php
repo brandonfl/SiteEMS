@@ -30,7 +30,7 @@ session_start();
 
 
 
-if (isset($_SESSION['id'])) {
+if (isset($_SESSION['id']) and $_SESSION['Allow'] == 1) {
 
     require 'nav.php';
     $nav = getNavigation($_SERVER['PHP_SELF']);
