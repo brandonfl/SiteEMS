@@ -33,6 +33,7 @@ if (isset($_SESSION['id'])) {
     $nav = getNavigation($_SERVER['PHP_SELF']);
 
 
+
     echo '
     <head>
     <link rel="icon" type="image/x-icon" href="assets/img/lsmdico.ico" />
@@ -82,6 +83,14 @@ if (isset($_SESSION['id'])) {
                     </div>
                 </div>
             </section>
+            <div class="panel panel-info">
+				<div class="panel-heading">
+					<p></p>
+					<p></p>Liste des derniers controles medicales
+					<p></p>
+					<p></p>
+				</div>
+				</div>
             <!-- MENU SECTION END-->
             <div class="content-wrapper">
                 <div class="container">
@@ -90,6 +99,7 @@ if (isset($_SESSION['id'])) {
                             <h4 class="header-line">LSPD PANEL</h4>
                         </div>
                     </div>
+                    
                     
 
                                     ';

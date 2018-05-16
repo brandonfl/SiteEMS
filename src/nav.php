@@ -4,7 +4,7 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
 
     $resultat = '';
 
-    if($current == "lsmd.php"){
+    if($current == "/lsmd.php"){
         $resultat .= '<li>
                                         <a href="lsmd.php" class="menu-top-active">Home</a>
                                     </li>';
@@ -14,7 +14,7 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
                                     </li>';
     }
 
-    if($current == "add_criminal.php"){
+    if($current == "/add_criminal.php"){
         $resultat .= '<li>
 										<a href="add_criminal.php" class="menu-top-active">Ajouter un criminel</a>
 									</li>';
@@ -24,7 +24,7 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
 									</li>';
     }
 
-    if($current == "bracelet.php"){
+    if($current == "/bracelet.php"){
         $resultat .= '<li>
 										<a href="bracelet.php" class="menu-top-active">Bracelet</a>
 									</li>';
@@ -34,7 +34,7 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
 									</li>';
     }
 
-    if($current == "concessionnaire.php"){
+    if($current == "/concessionnaire.php"){
         $resultat .= '<li>
 											<a href="concessionnaire.php" class="menu-top-active">Plaques</a>
 										</li>';
@@ -44,7 +44,7 @@ function getNavigation($current){ //$_SERVER['PHP_SELF']
 										</li>';
     }
 
-    if($current == "vehicule.php"){
+    if($current == "/vehicule.php"){
         $resultat .= '<li>
 										<a href="vehicule.php" class="menu-top-active">Vehicule</a>
 									</li>';
