@@ -109,7 +109,7 @@ if(isset($_GET['nom'])){
                                                     </div>
 
                                                     <div class="col-md-3 col-sm-6 col-xs-6">
-                                                        <h4 style="all: unset">Caractéristiques</h4>
+                                                        <h4 style="all: unset;font-size: 20px">Caractéristiques</h4>
                                                     </div>
                                                     <?php
 
@@ -146,7 +146,7 @@ if(isset($_GET['nom'])){
                                                     </div>
 
                                                 </div>
-                                                    <h4 style="all: unset">Historique medicale</h4>
+                                                    <h4 style="all: unset;font-size: 20px">Historique medicale</h4>
                                                 <br>
 
 
