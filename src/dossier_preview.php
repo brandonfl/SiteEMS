@@ -33,8 +33,8 @@ if(isset($_GET['nom'])){
     <![endif]-->
     <title>LSMD PANEL</title>
     <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="https://lsmd-fivelife.fr/assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONT AWESOME STYLE  -->
+    <!--<link href="https://lsmd-fivelife.fr/assets/css/bootstrap.css" rel="stylesheet" />-->
+   <!-- FONT AWESOME STYLE  -->
     <link href="https://lsmd-fivelife.fr/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
     <link href="https://lsmd-fivelife.fr/assets/css/style.css" rel="stylesheet" />
@@ -84,7 +84,7 @@ if(isset($_GET['nom'])){
 
 <body>
 <!-- MENU SECTION END-->
-        <div class="row">
+        <div class="row" style="position: relative">
             <div class="col-md-12">
                 <!-- Advanced Tables -->
                     <div class="panel-body">
