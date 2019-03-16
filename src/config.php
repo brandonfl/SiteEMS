@@ -1,8 +1,8 @@
 <?php
-$username = "u538666326_root1"; // username
-$password = "9Q29o5Ix+n[IGEihB6"; // password of the database
-$hostname = "mysql.hostinger.fr"; // host of the database
-$namebase = "u538666326_lsmdb"; // name of the database
+$username = ""; // username
+$password = ""; // password of the database
+$hostname = ""; // host of the database
+$namebase = ""; // name of the database
 
 
 
