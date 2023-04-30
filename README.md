@@ -3,10 +3,6 @@ Dans le cadre d'un projet de serveur RP, voici un site pour la partie médical d
 
 Site original : https://github.com/TwitchParadise/Police-Portal
 
-Final avec ajout des fonctionnalités : ~~https://lsmd-fivelife.fr/~~
-
-Test : https://brandon.fontany-legall.xyz/public/dev/SiteLSMD/ (email : admin@admin.com | password : admin)
-
 ## Fonctionnalités
  - [x] Récupération depuis le serveur de jeu les noms des joueurs 
  - [x] Création de dossier médical 
@@ -18,10 +14,9 @@ Test : https://brandon.fontany-legall.xyz/public/dev/SiteLSMD/ (email : admin@ad
 ## Images
 
 <p align="center">
-  <img src="https://brandon.fontany-legall.xyz/public/images/sites/ems/noms.png">
-    <img src="https://brandon.fontany-legall.xyz/public/images/sites/ems/pannel.png">
-    <img src="https://brandon.fontany-legall.xyz/public/images/sites/ems/visu.png">
-    <img src="https://brandon.fontany-legall.xyz/public/images/sites/ems/dossier.png">
-    <img src="https://brandon.fontany-legall.xyz/public/images/sites/ems/accident.png">
-    <img src="https://brandon.fontany-legall.xyz/public/images/sites/ems/vehicules.png">
+  <img src="https://github.com/brandonfl/SiteEMS/blob/demo-images/noms.png?raw=true">
+  <img src="https://github.com/brandonfl/SiteEMS/blob/demo-images/visu.png?raw=true">
+  <img src="https://github.com/brandonfl/SiteEMS/blob/demo-images/dossier.png?raw=true">
+  <img src="https://github.com/brandonfl/SiteEMS/blob/demo-images/accident.png?raw=true">
+  <img src="https://github.com/brandonfl/SiteEMS/blob/demo-images/vehicules.png?raw=true">
 </p>
